@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,11 +46,8 @@
                   <li><a class="dropdown-item" href="#">Action</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="../logout.php">logout</a></li>
                 </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -71,14 +70,14 @@
       <!--Card2-->
       <div class="card" style="width: 18rem;height:10rem; background-color: aqua;">
         <div class="card-body">
-          <h3>Student Users</h3>
+          <h1>Student Users</h1>
           <h2>24</h2>
         </div>
       </div>
       <!--Card3-->
       <div class="card" style="width: 18rem;height:10rem; background-color: rgb(229, 255, 0);">
         <div class="card-body">
-          <h5>Instructor Users</h5>
+          <h1>Instructor Users</h1>
           <h2>24</h2>
         </div>
       </div>
