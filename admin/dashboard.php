@@ -26,7 +26,7 @@
     <!--Navbar-->
     <nav class="navbar" style="background-color: rgba(1, 1, 49, 0.938);">
         <div class="container-fluid">
-          <a class="navbar-brand text-white"href="#">Home</a>
+          <a class="navbar-brand text-white"href="#">Dashboard</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -57,6 +57,40 @@
           </div>
         </div>
       </nav>
+      <!--Flex Container-->
+      <div class="flex-container">
+      <!--Card1-->
+      <div class="card" style="width: 18rem;height:10rem; background-color: rgb(255, 0, 0);">
+        <div class="card-body">
+          <h1>Admin Users</h1>
+          <h2>24</h2>
+        </div>
+      </div>
+
+      <!--Card2-->
+      <div class="card" style="width: 18rem;height:10rem; background-color: aqua;">
+        <div class="card-body">
+          <h1>Student Users</h1>
+          <h2>24</h2>
+        </div>
+      </div>
+      <!--Card3-->
+      <div class="card" style="width: 18rem;height:10rem; background-color: rgb(229, 255, 0);">
+        <div class="card-body">
+          <h1>Instructor Users</h1>
+          <h2>24</h2>
+        </div>
+      </div>
+       <!--Card4-->
+       <div class="card" style="width: 18rem;height:10rem; background-color: rgb(0, 255, 42);">
+        <div class="card-body">
+          <h1>Total Users</h1>
+          <h2>24</h2>
+        </div>
+      </div>
+      </div>
+
+
 </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
