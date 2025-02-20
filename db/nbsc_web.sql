@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2025 at 08:53 AM
+-- Generation Time: Feb 20, 2025 at 10:04 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -41,7 +41,7 @@ DELIMITER ;
 --
 
 CREATE TABLE `login_logs` (
-  `id` int(11) NOT NULL,
+  `login_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `login_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -50,12 +50,13 @@ CREATE TABLE `login_logs` (
 -- Dumping data for table `login_logs`
 --
 
-INSERT INTO `login_logs` (`id`, `user_id`, `login_time`) VALUES
-(1, 1, '2025-02-03 14:46:05'),
-(2, 2, '2025-02-03 14:47:34'),
-(3, 1, '2025-02-03 14:48:18'),
-(4, 2, '2025-02-03 14:49:53'),
-(5, 1, '2025-02-03 14:56:29');
+INSERT INTO `login_logs` (`login_id`, `user_id`, `login_time`) VALUES
+(1, 4, '2025-02-13 14:49:56'),
+(2, 5, '2025-02-13 14:50:22'),
+(3, 6, '2025-02-13 14:51:48'),
+(4, 7, '2025-02-13 14:52:16'),
+(5, 5, '2025-02-13 14:55:38'),
+(6, 5, '2025-02-20 16:53:11');
 
 -- --------------------------------------------------------
 
@@ -81,23 +82,35 @@ CREATE TABLE `tbl_student` (
 --
 
 CREATE TABLE `users` (
-  `id` int(10) NOT NULL,
-  `username` varchar(10) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `user_type` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `user_type` enum('admin','user') NOT NULL DEFAULT 'user',
+  `last_login` datetime DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `user_type`) VALUES
-(1, 'Arkyroel14', '$2y$10$5fAFiyrY7Dace', 'user'),
-(2, 'Arkyroel14', '$2y$10$sqNA1JcXyOGuY', 'user');
+INSERT INTO `users` (`id`, `username`, `password`, `user_type`, `last_login`, `created_at`) VALUES
+(4, 'Arky', '$2y$10$SXxkP7bywbt6t2NylfQVwOMbZGkU/n2wVaUf7Pw3E8mG0wfHb0Mvu', 'user', '2025-02-13 14:49:56', '2025-02-13 06:49:49'),
+(5, 'cliff', '$2y$10$sZ/d0JJJZfr4QGBeDRh8KuLtgAmOWL.oM/D/QcHBegAymNWLGakOS', 'admin', '2025-02-20 16:53:11', '2025-02-13 06:50:14'),
+(6, 'Jethro', '$2y$10$4xMBli.YztlV8XJNaUcOx.5F6U8JBKTxlmIqOkHuIucCPs/YDbsXS', 'user', '2025-02-13 14:51:48', '2025-02-13 06:51:39'),
+(7, 'Cha', '$2y$10$JUFjsK2Em9HejDa9uiD03OfhVbrZjwwUCdg6ePXNNy9EdfR/./Unq', 'admin', '2025-02-13 14:52:16', '2025-02-13 06:52:08'),
+(8, 'Meme', '$2y$10$RUthHpZPtmdM8C21jemqIOpBZtYAUEsOI44ktv7TACOt22nUQKXfy', 'user', NULL, '2025-02-13 06:55:13'),
+(9, 'Mar', '$2y$10$MmyXucDInmIQzVlfxDIM5O.NQbS39O/8qZ5laKV2NxMu.jpi5s0DK', 'admin', NULL, '2025-02-13 06:55:31');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `login_logs`
+--
+ALTER TABLE `login_logs`
+  ADD PRIMARY KEY (`login_id`);
 
 --
 -- Indexes for table `tbl_student`
@@ -116,16 +129,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `login_logs`
+--
+ALTER TABLE `login_logs`
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `tbl_student`
 --
 ALTER TABLE `tbl_student`
-  MODIFY `student_ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202500001;
+  MODIFY `student_ID` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
